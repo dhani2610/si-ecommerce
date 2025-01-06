@@ -137,32 +137,37 @@
                                                         @php
                                                             $checkoutDetail = \App\Models\CheckoutDetail::where('id_checkout',$item->id)->get();
                                                         @endphp
-                                                        @foreach ($checkoutDetail as $cd)
-                                                        <tr>
-                                                            @php
-                                                                $prod = \App\Models\Product::where('id',$cd->id_product)->first();
-                                                            @endphp
-                                                                
-                                                            <td class="ps-4">
-                                                                <p class=""style="font-size: 15px">{{ $loop->iteration }}</p>
-                                                            </td>
-                                                            <td>
-                                                                <img src="{{ asset('assets/img/foto_product/'.$prod->foto_1) }}" alt="" style="max-width: 200px">
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <p class=""style="font-size: 15px">{{ $prod->nama ?? '-' }}</p>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <p class=""style="font-size: 15px">{{ $cd->qty }}</p>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <p class=""style="font-size: 15px">@currency($prod->harga ?? 0)</p>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <p class=""style="font-size: 15px">@currency($prod->harga * $cd->qty)</p>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
+                                                        
+                                                        @if (count($checkoutDetail) > 0)
+                                                            @foreach ($checkoutDetail as $cd)
+                                                                @php
+                                                                    $prod = \App\Models\Product::where('id',$cd->id_product)->first();
+                                                                @endphp
+                                                                @if ($prod != null)
+                                                                    <tr>
+                                                                        <td class="ps-4">
+                                                                            <p class=""style="font-size: 15px">{{ $loop->iteration }}</p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <img src="{{ asset('assets/img/foto_product/'.$prod->foto_1) }}" alt="" style="max-width: 200px">
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <p class=""style="font-size: 15px">{{ $prod->nama ?? '-' }}</p>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <p class=""style="font-size: 15px">{{ $cd->qty }}</p>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <p class=""style="font-size: 15px">@currency($prod->harga ?? 0)</p>
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <p class=""style="font-size: 15px">@currency($prod->harga * $cd->qty)</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
+                                                        
                                                     </tbody>
                                                 </table>
                                                 </div>

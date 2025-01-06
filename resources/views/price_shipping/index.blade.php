@@ -104,10 +104,10 @@
                                     </td>
                                     <td class="text-center">
                                         <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#modaledit{{ $item->id }}">
-                                            <i class="fas fa-user-edit text-secondary"></i>
+                                            <i class="fa fa-pencil text-secondary"></i>
                                         </a>
                                         <a href="{{ route('delete-price-shipping',$item->id) }}" type="button" >
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            <i class="cursor-pointer fa fa-trash text-secondary"></i>
                                         </a>
                                     </td>
                                 </tr>

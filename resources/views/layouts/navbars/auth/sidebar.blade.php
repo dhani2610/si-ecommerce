@@ -6,7 +6,7 @@
 </style>
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 shadow-lg" id="sidenav-main" style="background: white">
   <div class="sidenav-header">
-    <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <i class="fa fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('dashboard') }}">
         <img src="{{asset('assets/img/logo-toko.png')}}" class="navbar-brand-img h-100" alt="...">
         <span class="ms-3 font-weight-bold">Dashboard</span>
@@ -41,7 +41,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('product') ? 'active' : '') }}" href="{{ url('product') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('product') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('product') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Product</span>
         </a>
@@ -49,7 +49,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('category') ? 'active' : '') }}" href="{{ url('category') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('category') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('category') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Category</span>
         </a>
@@ -60,7 +60,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('price-shipping') ? 'active' : '') }}" href="{{ url('price-shipping') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('price-shipping') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('price-shipping') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Price Shipping</span>
         </a>
@@ -68,7 +68,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('payment-information') ? 'active' : '') }}" href="{{ url('payment-information') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('payment-information') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('payment-information') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Payment Information</span>
         </a>
@@ -80,7 +80,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('incoming-order') ? 'active' : '') }}" href="{{ url('incoming-order') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('incoming-order') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('incoming-order') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Incoming Order </span>
         </a>
@@ -88,7 +88,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('process-order') ? 'active' : '') }}" href="{{ url('process-order') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('process-order') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('process-order') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Process Order</span>
         </a>
@@ -96,7 +96,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('order-sent') ? 'active' : '') }}" href="{{ url('order-sent') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('order-sent') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('order-sent') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Order Sent</span>
         </a>
@@ -104,7 +104,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('order-completed') ? 'active' : '') }}" href="{{ url('order-completed') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('order-completed') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('order-completed') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Order Completed</span>
         </a>
@@ -112,7 +112,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('order-rejected') ? 'active' : '') }}" href="{{ url('order-rejected') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('order-rejected') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('order-rejected') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Order Rejected</span>
         </a>
@@ -143,7 +143,7 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('user-management') ? 'active' : '') }}" href="{{ url('user-management') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fa fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('user-management') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">User Management</span>
         </a>
