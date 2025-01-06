@@ -1,67 +1,75 @@
-@extends('layouts.user_type.guest')
+@extends('layouts-fe.app')
 
+@section('style')
+<style>
+.input-ck{
+    border-radius: 0px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#btn-checkout{
+    color: white;
+    background: black;
+    height: 3em;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 0px;
+}
+</style>
+@endsection
 @section('content')
+<section id="about" class="about">
+    <div class="container">
 
-  <main class="main-content  mt-0">
-    <section>
-      <div class="page-header min-vh-75">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-              <div class="card card-plain mt-8">
-                <div class="card-header pb-0 text-left bg-transparent">
-                  <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                  <p class="mb-0">Create a new acount<br></p>
-                  <p class="mb-0">OR Sign in with these credentials:</p>
-                  <p class="mb-0">Email <b>admin@softui.com</b></p>
-                  <p class="mb-0">Password <b>secret</b></p>
-                </div>
+        <div class="row content">
+            <form method="POST" action="/login-post">
+                @csrf
+            <div class="card mx-auto" style="max-width: 60vh">
                 <div class="card-body">
-                  <form role="form" method="POST" action="/session">
-                    @csrf
-                    <label>Email</label>
-                    <div class="mb-3">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="admin@softui.com" aria-label="Email" aria-describedby="email-addon">
-                      @error('email')
-                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                      @enderror
+                    <label style="color: black;font-weight:700;">Welcome Back</label> <br>
+                    <label style="color: silver;">Login with email</label> <br>
+                    @if(session('success'))
+                        <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                            <span class="alert-text text-white">
+                            {{ session('success') }}</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-close" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    @endif
+                    @if(session('failed'))
+                        <div class="m-3  alert alert-danger alert-dismissible fade show" id="alert-danger" role="alert">
+                            <span class="alert-text text-white">
+                            {{ session('failed') }}</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-close" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    @endif
+                    <div class="form-group mt-2">
+                        <input type="email" class="form-control input-ck" value="" name="email" placeholder="Email">
                     </div>
-                    <label>Password</label>
-                    <div class="mb-3">
-                      <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="secret" aria-label="Password" aria-describedby="password-addon">
-                      @error('password')
-                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                      @enderror
+                    <div class="form-group mt-2">
+                        <input type="password" class="form-control input-ck" value="" name="password" placeholder="Password">
                     </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
-                    </div>
-                  </form>
+                    <br>
+                    <br>
+                    {{-- Or create an account --}}
+                    <button type="submit" id="btn-checkout" class="shopnow" style="height: 3em" ><span>Login</span></button>
+                    <center>
+                        <a href="/register" class="text-center mt-2 mb-2">
+                            <label style="color: silver;">Or create an <b>account</b> </label> <br>
+                        </a>
+                    </center>
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                <small class="text-muted">Forgot you password? Reset you password 
-                  <a href="/login/forgot-password" class="text-info text-gradient font-weight-bold">here</a>
-                </small>
-                  <p class="mb-4 text-sm mx-auto">
-                    Don't have an account?
-                    <a href="register" class="text-info text-gradient font-weight-bold">Sign up</a>
-                  </p>
-                </div>
-              </div>
+                </form>
             </div>
-            <div class="col-md-6">
-              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-  </main>
 
+    </div>
+
+</section><!-- End About Section -->
+@endsection
+@section('script')
+    
 @endsection

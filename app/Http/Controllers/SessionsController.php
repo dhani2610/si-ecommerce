@@ -13,8 +13,9 @@ class SessionsController extends Controller
         return view('session.login-session');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+
         $attributes = request()->validate([
             'email'=>'required|email',
             'password'=>'required' 
@@ -23,11 +24,14 @@ class SessionsController extends Controller
         if(Auth::attempt($attributes))
         {
             session()->regenerate();
-            return redirect('dashboard')->with(['success'=>'You are logged in.']);
+            if (Auth::user()->role == 'Admin') {
+                return redirect('dashboard')->with('success','You are logged in.');
+            }else{
+                return redirect('/')->with('success','You are logged in.');
+            }
         }
         else{
-
-            return back()->withErrors(['email'=>'Email or password invalid.']);
+            return redirect()->back()->with('failed','Email or password invalid.');
         }
     }
     

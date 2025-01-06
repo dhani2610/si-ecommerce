@@ -20,7 +20,7 @@ Soft UI Dashboard Laravel comes with dozens of handcrafted UI elements tailored 
 You're getting a multi-purpose tool for building complex apps.
 
 Soft UI Dashboard PRO Laravel at a glance:
-* 70 handcrafted UI components. From buttons and inputs to navbars and cards, everything is designed to create visually cohesive interfaces.  
+* 70 handcrafted UI components. From buttons and inputs to navbars and cards, everything is Development to create visually cohesive interfaces.  
 * 7 example pages to get you started
 * fully-functional authentication system, register and user profile editing features built with Laravel
 * Documentation for each component so you can get started fast

@@ -11,9 +11,16 @@ use Illuminate\Support\Facades\View;
 class InfoUserController extends Controller
 {
 
+    public function userManagement(){
+        $data['page_title'] = 'User Management';
+        $data['user'] = User::orderBy('id','desc')->get();
+		return view('account-management/user-management',$data);
+    }
+
     public function create()
     {
-        return view('laravel-examples/user-profile');
+        $data['page_title'] = 'User Management';
+        return view('account-management/user-profile',$data);
     }
 
     public function store(Request $request)
@@ -26,32 +33,94 @@ class InfoUserController extends Controller
             'location' => ['max:70'],
             'about_me'    => ['max:150'],
         ]);
-        if($request->get('email') != Auth::user()->email)
-        {
-            if(env('IS_DEMO') && Auth::user()->id == 1)
-            {
-                return redirect()->back()->withErrors(['msg2' => 'You are in a demo version, you can\'t change the email address.']);
-                
-            }
-            
-        }
-        else{
             $attribute = request()->validate([
                 'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore(Auth::user()->id)],
             ]);
+        
+        
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('assets/img/foto_user/');
+            $image->move($destinationPath, $name);
+
+            User::where('id',Auth::user()->id)
+            ->update([
+                'name'    => $attributes['name'],
+                'email' => $attribute['email'],
+                'phone'     => $attributes['phone'],
+                'location' => $attributes['location'],
+                'about_me'    => $attributes["about_me"],
+                'foto'    => $name,
+            ]); 
+        }else{
+            User::where('id',Auth::user()->id)
+            ->update([
+                'name'    => $attributes['name'],
+                'email' => $attribute['email'],
+                'phone'     => $attributes['phone'],
+                'location' => $attributes['location'],
+                'about_me'    => $attributes["about_me"],
+            ]); 
         }
-        
-        
-        User::where('id',Auth::user()->id)
-        ->update([
-            'name'    => $attributes['name'],
-            'email' => $attribute['email'],
-            'phone'     => $attributes['phone'],
-            'location' => $attributes['location'],
-            'about_me'    => $attributes["about_me"],
-        ]);
 
 
         return redirect('/user-profile')->with('success','Profile updated successfully');
+    }
+
+    public function tambahUser(Request $request)
+    {
+        // dd($request->all());
+        $attributes = request()->validate([
+            'name' => ['required', 'max:50'],
+            'role' => ['required'],
+            'email' => ['required', 'email', 'max:50', Rule::unique('users', 'email')],
+            'password' => ['required', 'min:5', 'max:20'],
+            'agreement' => ['accepted']
+        ]);
+        $attributes['password'] = bcrypt($attributes['password'] );
+        $user = User::create($attributes);
+
+        if ($user) {
+            return redirect()->back()->with('success','Data has been created');
+        }else{
+            return redirect()->back()->with('failed','Data Failed created');
+        }
+
+    }
+    public function updateUser(Request $request,$id)
+    {
+        // dd($request->all());
+        $attributes = request()->validate([
+            'name' => ['required', 'max:50'],
+            'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore($id)],
+            'password' => ['nullable', 'min:5', 'max:20'],
+            'agreement' => ['accepted']
+        ]);
+        if ($attributes['password'] != null) {
+            $attributes['password'] = bcrypt($attributes['password'] );
+        }
+
+        $user = User::where('id',$id)
+        ->update([
+            'name'    => $attributes['name'],
+            'email' => $attributes['email'],
+        ]); 
+
+        if ($user) {
+            return redirect()->back()->with('success','Data has been edited');
+        }else{
+            return redirect()->back()->with('failed','Data Failed edited');
+        }
+
+    }
+
+    public function deleteUser($id){
+        $user = User::find($id);
+        if ($user->delete()) {
+            return redirect()->back()->with('success','Data has been deleted');
+        }else{
+            return redirect()->back()->with('failed','Data Failed deleted');
+        }
     }
 }
