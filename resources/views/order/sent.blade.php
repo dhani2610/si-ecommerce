@@ -142,12 +142,11 @@
                                                         @endphp
                                                         @if (count($checkoutDetail) > 0)
                                                             @foreach ($checkoutDetail as $cd)
+                                                                @php
+                                                                    $prod = \App\Models\Product::where('id',$cd->id_product)->first();
+                                                                @endphp
                                                                 @if ($prod != null)
                                                                 <tr>
-                                                                    @php
-                                                                        $prod = \App\Models\Product::where('id',$cd->id_product)->first();
-                                                                    @endphp
-                                                                        
                                                                     <td class="ps-4">
                                                                         <p class=""style="font-size: 15px">{{ $loop->iteration }}</p>
                                                                     </td>
