@@ -19,7 +19,7 @@
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-    <a href="/" class="logo me-auto"><img src="{{asset('assets/img/logo-toko.png')}}" alt="" class="img-fluid">Toko Aldi</a>
+    <a href="/" class="logo me-auto"><img src="{{asset('assets/img/logo-toko.png')}}" alt="" class="img-fluid">Heritage Timeless</a>
       {{-- <h1 class="logo me-auto"><a href="index.html">Toko Aldi</a></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
 

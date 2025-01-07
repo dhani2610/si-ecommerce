@@ -45,26 +45,18 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({{ asset('assets-fe/img/slide/slide-1.jpg')}})">
+        <div class="carousel-item active" style="background-image: url({{ asset('assets-fe/img/slide/foto1.png')}})">
           <div class="carousel-container">
             
           </div>
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({{ asset('assets-fe/img/slide/slide-2.jpg')}})">
+        <div class="carousel-item" style="background-image: url({{ asset('assets-fe/img/slide/foto2.png')}})">
           <div class="carousel-container">
            
           </div>
         </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({{ asset('assets-fe/img/slide/slide-3.jpg')}})">
-          <div class="carousel-container">
-            
-          </div>
-        </div>
-
       </div>
 
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
